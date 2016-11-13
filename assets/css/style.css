@@ -1,0 +1,19 @@
+body {
+	text-align: center;
+	background: url("http://alllayedout.com/Backgrounds/Purple_Galaxy.jpg");
+	font-size: 18px;
+	line-height: 34px;
+	
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	clear: both;
+}
+
