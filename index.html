@@ -68,25 +68,42 @@
 		<div class="col-md-8">
 			<div>
 			 
-
-		<image class = "crystal" 
-				id="0" src ="assets/images/pink.png"></image>
-		<image class = "crystal"
-				id="1" src ="assets/images/blue.png"></image>
-		<image class = "crystal" 
-				id="2" src ="assets/images/purple.png"></image>
-		<image class = "crystal" 
-				id="3" src ="assets/images/yellow.png"></image>
-			</div>
+	<!--clickable crystals -->
+	<image class = "crystal, img-circle" 
+                id="0" src ="assets/images/pink.png"
+                alt="assets/images/pink.png"></image>  
+    <image class = "crystal, img-circle" 
+                id="0" src ="assets/images/blue.png"
+                alt="assets/images/blue.png"></image> 
+    <image class = "crystal, img-circle" 
+                id="0" src ="assets/images/purple.png"
+                alt="assets/images/purple.png"></image> 
+    <image class = "crystal, img-circle" 
+                id="0" src ="assets/images/yellow.png"
+                alt="assets/images/yellow.png"></image>                                                       </div>
 		</div>
 		<div class="col-md-2">
 			
 		</div>
 	</div>
 
-<!-- JS script -->
+<!-- script -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script type="text/javascript">
+
+ /*
+    variables: computerNumber (random 19-120), 4 crystals (random number 1-12), counter, score
+    random number generated at start of game(variable)
+    4 crystals contain a random number(1-12) generated at start of game
+    click on crystal adds its number to score (counter)
+    win if score = total to win
+    lose if score > total to win
+    game restarts (reset)
+        wins/loses updated
+        score reset to zero
+        score counter reset
+    */
+
 
 $(document).ready(function() {
 	
@@ -98,10 +115,11 @@ $(document).ready(function() {
 	var gemGeneratorArray = [];
 	reset();
 	
-	function reset(){
+	function restart(){
 		//Assigns a random number between 19 - 120
-		totalToWin = Math.floor(Math.random() * 102) + 19;
-		//Assigns a random number between 1 - 12 for each gem
+		totalToWin = Math.floor(Math.random() * 120) + 19;
+		
+		//Assigns a random number between 1 - 12 for each crystal in array of 4
 		for (var i = 0; i < 4; i++){
 			gemGeneratorArray[i] = Math.floor(Math.random() * 12) + 1;
 			var button = "#" + i;
@@ -125,14 +143,14 @@ $(document).ready(function() {
 			wins = wins + 1;
 			counter	= 0;
 			$("#wins").html(wins);
-			reset();
+			restart();
 			console.log("You Win!");
 		//if clicks go over displays a loss	
 		}else if(totalToWin < counter){
 			losses = losses + 1;
 			counter = 0;
 			$("#losses").html(losses);
-			reset();
+			restart();
 			console.log("You lose!");
 		}
 	});
