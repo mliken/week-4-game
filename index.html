@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>The Crystal Collector</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <title>The Crystal Collector</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
+
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h1>Crystal Collector</h1>
-                <p><h3>Goal: Click on the crystals to tally up values to a score that equals the Total to Win <h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h1>Crystal Collector</h1>
+                    <p>
+                        <h3>Goal: Click on the crystals to tally up values to a score that equals the Total to Win <h3>
                     <br>
                     <h5>If your score exceeds the goal you lose and the game restarts <h5>
                 </p>
@@ -22,139 +25,188 @@
          </div>
      </div>
  </div>
-	
-		<div class="col-md-3">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Total to Win</h3>
-				</div>
-				<div class="panel-body" id="totalToWin"></div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Your Score</h3>
-				</div>
-				<div class="panel-body" id="counter"></div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Wins</h3>
-				</div>
-				<div class="panel-body" id="wins"></div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Losses</h3>
-				</div>
-				<div class="panel-body" id="losses"></div>
-			</div>
-		</div>
+           
+        <div class="col-md-3">
+            <section id = "totalToWin">
+            <p id="number"><
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Total to Win</h3>
+                </div>
+                <div class="panel-body" id="totalToWin"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <section id = "youScore"
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Your Score</h3>
+                </div>
+                <div class="panel-body" id="counter"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <section id = "wins">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Wins</h3>
+                </div>
+                <div class="panel-body" id="wins"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <section id = "losses">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Losses</h3>
+                </div>
+                <div class="panel-body" id="losses"></div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <div>
 
-		<div class="col-md-1"></div>
-		<div class="col-md-10">
-				
-		</div>
-		<div class="col-md-1"></div>
+            <!-- section for displaying buttons -->
+                <section id = "buttons">
+                    <button><img id = "pinkCrystal" class = "buttonImage" src="assets/images/pink.png"></button>
+                    <button class = "middleButton"><img id = "blueCrystal" class = "buttonImage" src="assets/images/blue.png"></button>
+                    <button class = "middleButton"><img id = "purpleCrystal" class = "buttonImage" src="assets/images/purple.png"></button>
+                    <button><img id = "yellowCrystal" class = "buttonImage" src="assets/images/yellow.png"></button>
+                </section> 
+            </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+    <!-- JS script -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript">
+    /*
+            variables: computerNumber (random 19-120), 4 crystals (random number 1-12), counter, score
+            random number generated at start of game(variable)
+            4 crystals contain a random number(1-12) generated at start of game
+            click on crystal adds its number to score (counter)
+            win if score = total to win
+            lose if score > total to win
+            game restarts (reset)
+                wins/loses updated
+                score reset to zero
+                score counter reset
+            */
 
-		<div class="col-md-2">
-			
-		</div> 
-		<div class="col-md-8">
-			<div>
-			 
-	<!--clickable crystals -->
-	<image class = "crystal, img-circle" 
-                id="0" src ="assets/images/pink.png"
-                alt="assets/images/pink.png"></image>  
-    <image class = "crystal, img-circle" 
-                id="0" src ="assets/images/blue.png"
-                alt="assets/images/blue.png"></image> 
-    <image class = "crystal, img-circle" 
-                id="0" src ="assets/images/purple.png"
-                alt="assets/images/purple.png"></image> 
-    <image class = "crystal, img-circle" 
-                id="0" src ="assets/images/yellow.png"
-                alt="assets/images/yellow.png"></image>                                                       </div>
-		</div>
-		<div class="col-md-2">
-			
-		</div>
-	</div>
-
-<!-- script -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script type="text/javascript">
-
- /*
-    variables: computerNumber (random 19-120), 4 crystals (random number 1-12), counter, score
-    random number generated at start of game(variable)
-    4 crystals contain a random number(1-12) generated at start of game
-    click on crystal adds its number to score (counter)
-    win if score = total to win
-    lose if score > total to win
-    game restarts (reset)
-        wins/loses updated
-        score reset to zero
-        score counter reset
-    */
+    $(document).ready(function() {
 
 
-$(document).ready(function() {
-	
 
-	var wins = 0;
-	var losses = 0;
-	var totalToWin;
-	var counter = 0;
-	var gemGeneratorArray = [];
-	reset();
-	
-	function restart(){
-		//Assigns a random number between 19 - 120
-		totalToWin = Math.floor(Math.random() * 120) + 19;
-		
-		//Assigns a random number between 1 - 12 for each crystal in array of 4
-		for (var i = 0; i < 4; i++){
-			gemGeneratorArray[i] = Math.floor(Math.random() * 12) + 1;
-			var button = "#" + i;
-			$(button).attr("data-crystalvalue", gemGeneratorArray[i]);
-		}
-	}
-	
-		$("#totalToWin").html(totalToWin);
-		$("#counter").html(counter);
-		$("#wins").html(wins);
-		$("#losses").html(losses);
+    var totalToWin;
+    var wins;
+    var losses;
+    var youScore;
+    var buttonValues;
+
+    //===================================
+
+    //Write functions below
+    function startGame(){
+
+        wins = 0;
+        losses = 0;
+        yourScore = 0;
+        buttonValues = [];
+        totalToWin = 0;
+
+            function reset() {
+
+                totalToWin = Math.floor(Math.random() * 101) + 19;
+
+                yourScore = 0;
+
+                for (var i = 0; i < 4; i++) {
+
+                    var randomVal = Math.floor(Math.random() * 12) + 1;
+                    buttonValues[i] = randomVal;
+
+                }
+
+            }; //reset function ends here
+
+            function display() {
+
+                $("#number").html(totalToWin);
+                $("#winsLosses").html("<p>Wins: " + wins + "</p><br>"
+                $("#losses").html ()    
+                    "<p>Losses: " + losses + "</p>");
+                $("#yourScore").html(yourScore);
+
+            }; //display function ends here
+
+            function checkScore() {
+                if (yourScore === totalToWin) {
+                    wins++;
+                    reset();
+                } else if (yourScore > totalToWin) {
+                    losses++;
+                    reset();
+                }
+
+            }
 
 
-	//activates on click function and adds points to user's score
-	$(".crystal").on("click", function(){
-		var crystal = $(this).data("crystalvalue");
-		counter = counter + crystal;
-		$("#counter").html(counter);
-		//if win displays win
-		if (totalToWin === counter){
-			wins = wins + 1;
-			counter	= 0;
-			$("#wins").html(wins);
-			restart();
-			console.log("You Win!");
-		//if clicks go over displays a loss	
-		}else if(totalToWin < counter){
-			losses = losses + 1;
-			counter = 0;
-			$("#losses").html(losses);
-			restart();
-			console.log("You lose!");
-		}
-	});
-});
-</script>	
+
+            //===================================
+
+            //Code game play below
+            reset();
+
+            display();
+
+            //on click event for each crystal
+
+       $(".pinkCrystal").on("click", function() {
+             var pinkValue = buttonValues[0];
+                yourScore += pinkValue;
+                checkScore();
+                display();
+                console.log(buttonValues);
+            });
+
+       $(".blueCrystal").on("click", function() {
+              var blueValue = buttonValues[1];
+                yourScore += blueValue;
+                checkScore();
+                display();
+                console.log(buttonValues);
+            });
+
+     $(".purpleCrystal").on("click", function() {
+             var purpleValue = buttonValues[2];
+                yourScore += purpleValue;
+                checkScore();
+                display();
+                console.log(buttonValues);
+            });
+
+     $(".yellowCrystal").on("click", function() {
+             var yellowValue = buttonValues[3];
+                yourScore += yellowValue;
+                checkScore();
+                display();
+                console.log(buttonValues);
+            });
+
+
+        }; //start game function ends here
+
+        startGame();
+
+    });
+    </script>
 </body>
+
 </html>
